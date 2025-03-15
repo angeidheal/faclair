@@ -1,0 +1,17 @@
+{% for post in site.faclair %}
+{
+    id: '{{ post.url}}',
+    gaelic: '{{ post.title}}',
+    definition: '{{ post.content }}',
+    grammarNotes: ''',
+    translations: {
+      gaeilge: '',
+      gaidhligMhanainn: '',
+      beurla: ''
+    },
+    createdAt: new Date('2008-01-01'),
+    updatedAt: new Date('2008-01-01')
+  },
+{% endfor %}
+
+
