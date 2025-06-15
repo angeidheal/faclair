@@ -1,0 +1,38 @@
+---
+layout: page
+permalink: /
+---
+
+<h1>Faclair nan Gèidheal</h1>
+
+<p>Faclair de bhriathrachas LGDTC+.</p>
+
+<div style="border-top: 1px solid #f0f0f0; padding: 8px 0px;"></div>
+
+<p style="text-align: center;">🗂️ Clàr-amais <a href="/lorg/">🔍 Lorg</a></p>
+
+<p style="text-align: center;"><a href="https://focloir.lgbt/" title="Amharc an leathanach as Gaeilge">&#x1f1ee;&#x1f1ea; Gaeilge</a> <a href="https://fockleyr.lgbt/">&#x1f1ee;&#x1f1f2; Gaelg</a> <a href="/en/" title="View this page in English">&#x1f3f4;&#xe0067;&#xe0062;&#xe0065;&#xe006e;&#xe0067;&#xe007f; English</a></p>
+
+<div style="border-top: 1px solid #f0f0f0; padding: 8px 0px;"></div>
+
+<p>Briog orra airson barrachd fhiosrachaidh.</p>
+
+<p><a href="https://angeidhealur.scot/mu-ar-deidhinn">Cuir fios thugainn</a> ma tha thu eòlach air facal no abairt a tha a dhìth.</p>
+
+{% for facal in site.faclair %}
+   <p><a href="{{ site.baseurl }}{{ facal.url }}">{{ facal.title }}</a></p>
+{% endfor %}
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <div class="row ">
+              <div class="col-md-12">
+                <p><a href="{{ site.baseurl }}{{ facal.url }}">{{ facal.title }}</a></p>
+              </div>
+            </div>
+          </button>
+        </h5>
+      </div>
