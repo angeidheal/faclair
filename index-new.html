@@ -19,9 +19,7 @@ permalink: /index-new/
 
 <p><a href="https://angeidhealur.scot/mu-ar-deidhinn">Cuir fios thugainn</a> ma tha thu eòlach air facal no abairt a tha a dhìth.</p>
 
-{% for facal in site.faclair %}
-   <p><a href="{{ site.baseurl }}{{ facal.url }}">{{ facal.title }}</a></p>
-{% endfor %}
+
 
   <div id="accordion">
     <div class="card">
@@ -30,7 +28,9 @@ permalink: /index-new/
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <div class="row ">
               <div class="col-md-12">
-                <p><a href="{{ site.baseurl }}{{ facal.url }}">{{ facal.title }}</a></p>
+               {% for facal in site.faclair %}
+                  <p><a href="{{ site.baseurl }}{{ facal.url }}">{{ facal.title }}</a></p>
+               {% endfor %}
               </div>
             </div>
           </button>
