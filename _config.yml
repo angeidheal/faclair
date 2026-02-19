@@ -9,7 +9,7 @@ baseurl: "" # Set to repo name if not user site, e.g. /repo-name
 author:
   name: "Crìstean MacMhìcheil" # Your name
   bluesky: "angeidheal.scot" # e.g. angeidheal.bsky.social or your custom domain handle
-  webmention_io: "angeidheal.scot" # your webmention.io username (usually your domain)
+  webmention_io: "criomagan.scot" # your webmention.io username (usually your domain)
 
 permalink: /:year-:month-:day-:title/
 
