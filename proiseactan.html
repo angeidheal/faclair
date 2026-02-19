@@ -1,0 +1,40 @@
+---
+layout: default
+title: Pròiseactan
+permalink: /proiseactan/
+---
+<h1>{{ page.title }}</h1>
+
+{% if site.data.projects.current.size > 0 %}
+<section aria-labelledby="current-heading">
+  <h2 id="current-heading">{{ site.strings.projects_current }}</h2>
+  <div class="post-grid">
+    {% for project in site.data.projects.current %}
+    <article class="post-card project-card">
+      {% if project.image %}
+      <img class="card-image" src="{{ project.image | relative_url }}" alt="" width="800" height="400">
+      {% endif %}
+      <h3>{% if project.url %}<a href="{{ project.url }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
+      {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if site.data.projects.old.size > 0 %}
+<section aria-labelledby="old-heading">
+  <h2 id="old-heading">{{ site.strings.projects_old }}</h2>
+  <div class="post-grid">
+    {% for project in site.data.projects.old %}
+    <article class="post-card project-card project-card--old">
+      {% if project.image %}
+      <img class="card-image" src="{{ project.image | relative_url }}" alt="" width="800" height="400">
+      {% endif %}
+      <h3>{% if project.url %}<a href="{{ project.url }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
+      {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

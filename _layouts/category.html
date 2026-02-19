@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+
+{% assign cat_posts = site.categories[page.category] %}
+{% if cat_posts.size > 0 %}
+<section aria-label="{{ page.category }}">
+  <div class="post-grid">
+    {% for post in cat_posts %}
+    <article class="post-card h-entry">
+      {% if post.image %}
+      <a href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        <img class="card-image" src="{{ post.image | relative_url }}" alt="" width="800" height="400">
+      </a>
+      {% endif %}
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <div class="card-meta">
+        {% assign m = post.date | date: '%m' %}{% assign month_full = site.data.months[m].full %}
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d' }} {{ month_full }} {{ post.date | date: '%Y' }}</time>
+      </div>
+      <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      {% if post.categories.size > 0 %}
+        <div class="card-meta">
+          {% for cat in post.categories %}
+            {% assign cat_slug = cat | slugify: "latin" %}
+            <a class="category-tag" href="{{ '/roinn-seorsa/' | append: cat_slug | append: '/' | relative_url }}">{{ cat }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% else %}
+<p>{{ site.strings.no_posts }}</p>
+{% endif %}

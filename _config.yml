@@ -1,0 +1,57 @@
+title: "Criomagan"
+description: "Blog Chrìstein MhicMhìcheil"
+lang: gd
+logo: /assets/logo.jpg # path to your site logo (or remove this line)
+url: "" # Set to your GitHub Pages URL, e.g. https://username.github.io
+baseurl: "" # Set to repo name if not user site, e.g. /repo-name
+
+# ── Author / Fediverse ──
+author:
+  name: "Crìstean MacMhìcheil" # Your name
+  bluesky: "angeidheal.scot" # e.g. angeidheal.bsky.social or your custom domain handle
+  webmention_io: "angeidheal.scot" # your webmention.io username (usually your domain)
+
+permalink: /:year-:month-:day-:title/
+
+paginate: 4
+paginate_path: "/duilleag/:num/"
+plugins:
+  - jekyll-paginate
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+# ── Localisable strings ──
+strings:
+  skip_to_content: "Leum dhan t-susbaint"
+  menu: "Clàr-innse"
+  primary_nav: "Prìomh-sheòladaireachd"
+  featured_story: "Prìomh phostaichean"
+  featured_story_single: "Prìomh Phost"
+  recent_stories: "Postaichean as ùire"
+  page: "Duilleag"
+  page_navigation: "seòladaireachd nan duilleagan"
+  newer: "Nas ùire"
+  older: "Nas sìne"
+  previous_page: "An duilleag roimhe"
+  next_page: "An ath dhuilleag"
+  no_posts: "Chan eil puist ann fhathast."
+  not_found_title: "404 — Duilleag nach eil ann"
+  not_found_message: "Tha sinn duilich, ach chan eil an duilleag seo ann."
+  back_home: "Till dhachaigh"
+  post_navigation: "seòladaireachd nam postaichean"
+  search_title: "Lorg"
+  search_label: "Lorg am broinn an làraich"
+  search_placeholder: "Sgrìobh facal-luirg…"
+  search_results: "Toraidhean luirg"
+  search_no_results: "Cha deach toradh a lorg."
+  search_results_count: "Toraidhean:"
+  categories_heading: "Roinnean-seòrsa"
+  projects_current: "Pròiseactan làithreach"
+  projects_old: "Seann phròiseactan"

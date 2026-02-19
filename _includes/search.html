@@ -1,0 +1,83 @@
+<form role="search" class="search-form" onsubmit="return false">
+  <label for="search-input" class="visually-hidden">{{ site.strings.search_label }}</label>
+  <input
+    id="search-input"
+    type="search"
+    placeholder="{{ site.strings.search_placeholder }}"
+    autocomplete="off"
+    aria-describedby="search-status">
+</form>
+
+<p id="search-status" role="status" aria-live="polite" class="search-status"></p>
+
+<ul id="search-results" class="search-results" aria-label="{{ site.strings.search_results }}"></ul>
+
+<section class="categories-section">
+  <h2>{{ site.strings.categories_heading }}</h2>
+  <ul class="category-list">
+    {% assign cats = site.categories | sort %}
+    {% for cat in cats %}
+    <li>
+      {% assign cat_slug = cat[0] | slugify: "latin" %}
+      <a href="{{ '/roinn-seorsa/' | append: cat_slug | append: '/' | relative_url }}">{{ cat[0] }} <span class="category-count">({{ cat[1].size }})</span></a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<script>
+(function () {
+  var input = document.getElementById('search-input');
+  var list  = document.getElementById('search-results');
+  var status = document.getElementById('search-status');
+  var posts = [];
+
+  function strip(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  var months = {
+    {% for m in site.data.months %}'{{ m[0] }}': '{{ m[1].full }}'{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  };
+
+  function localDate(iso) {
+    var parts = iso.split('-');
+    return parseInt(parts[2], 10) + ' ' + (months[parts[1]] || parts[1]) + ' ' + parts[0];
+  }
+
+  fetch('{{ "/search.json" | relative_url }}')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { posts = data; });
+
+  input.addEventListener('input', function () {
+    var q = strip(this.value.trim());
+    list.innerHTML = '';
+
+    if (q.length < 2) {
+      status.textContent = '';
+      return;
+    }
+
+    var matches = posts.filter(function (p) {
+      return strip(p.title).indexOf(q) !== -1 ||
+             strip(p.excerpt).indexOf(q) !== -1;
+    });
+
+    if (matches.length === 0) {
+      status.textContent = '{{ site.strings.search_no_results }}';
+      return;
+    }
+
+    status.textContent = '{{ site.strings.search_results_count }} ' + matches.length;
+
+    matches.forEach(function (p) {
+      var li = document.createElement('li');
+      li.innerHTML = '<a href="' + p.url + '">' + p.title + '</a>' +
+        '<time datetime="' + p.date + '">' + localDate(p.date) + '</time>' +
+        '<p>' + p.excerpt + '</p>';
+      list.appendChild(li);
+    });
+  });
+})();
+</script>
