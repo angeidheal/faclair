@@ -2,7 +2,7 @@ title: "Criomagan"
 description: "Blog Chrìstein MhicMhìcheil"
 lang: gd
 logo: /assets/logo.jpg # path to your site logo (or remove this line)
-url: "" # Set to your GitHub Pages URL, e.g. https://username.github.io
+url: "https://angeidheal.github.io/criomagan/" # Set to your GitHub Pages URL, e.g. https://username.github.io
 baseurl: "" # Set to repo name if not user site, e.g. /repo-name
 
 # ── Author / Fediverse ──
