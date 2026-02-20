@@ -156,7 +156,6 @@ nav a[aria-current="page"],
 /* ── Dropdown ── */
 .dropdown {
   position: relative;
-  padding-bottom: 0.5rem; /* Prevent hover loss */
 }
 
 .dropdown ul {
@@ -164,7 +163,7 @@ nav a[aria-current="page"],
   position: absolute;
   left: 0;
   top: 100%;
-  margin: 0;
+  margin: 0.15rem 0 0 0; /* Small top margin to help hover */
   padding: 0.4rem 0;
   list-style: none;
   background: Canvas;
