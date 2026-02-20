@@ -239,6 +239,12 @@ pre {
 
 code {
   font-family: ui-monospace, monospace;
+}
+
+.dropdown:hover,
+.dropdown:focus-within {
+  /* Keep dropdown open when hovering anywhere in .dropdown */
+}
   font-size: 0.9em;
 }
 
