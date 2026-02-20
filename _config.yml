@@ -1,8 +1,8 @@
-title: "Criomagan"
-description: "Blog Chrìstein MhicMhìcheil"
+title: "Faclair nan Gèidheal"
+description: "Faclair de bhriathrachas LGBTQIA+"
 lang: gd
-logo: /assets/logo.jpg # path to your site logo (or remove this line)
-url: "https://criomagan.scot" # Set to your GitHub Pages URL, e.g. https://username.github.io
+logo: /assets/logo.png # path to your site logo (or remove this line)
+url: "https://faclair.lgbt" # Set to your GitHub Pages URL, e.g. https://username.github.io
 baseurl: "" # Set to repo name if not user site, e.g. /repo-name
 
 # ── Author / Fediverse ──
@@ -11,12 +11,15 @@ author:
   bluesky: "angeidheal.scot" # e.g. angeidheal.bsky.social or your custom domain handle
   webmention_io: "angeidheal.scot" # your webmention.io username (Webmention.io account username)
 
-permalink: /:year-:month-:day-:title/
+permalink: /:title/
 
-paginate: 4
-paginate_path: "/duilleag/:num/"
-plugins:
-  - jekyll-paginate
+collections:
+  faclair:
+    output: true
+    permalink: /:path/
+  glossary:
+    output: true
+    permalink: /:path/
 
 markdown: kramdown
 kramdown:
@@ -32,26 +35,13 @@ strings:
   skip_to_content: "Leum dhan t-susbaint"
   menu: "Clàr-innse"
   primary_nav: "Prìomh-sheòladaireachd"
-  featured_story: "Prìomh phostaichean"
-  featured_story_single: "Prìomh Phost"
   recent_stories: "Postaichean as ùire"
-  page: "Duilleag"
-  page_navigation: "seòladaireachd nan duilleagan"
-  newer: "Nas ùire"
-  older: "Nas sìne"
-  previous_page: "An duilleag roimhe"
-  next_page: "An ath dhuilleag"
-  no_posts: "Chan eil puist ann fhathast."
   not_found_title: "404 — Duilleag nach eil ann"
   not_found_message: "Tha sinn duilich, ach chan eil an duilleag seo ann."
   back_home: "Till dhachaigh"
-  post_navigation: "seòladaireachd nam postaichean"
   search_title: "Lorg"
   search_label: "Lorg am broinn an làraich"
   search_placeholder: "Sgrìobh facal-luirg…"
   search_results: "Toraidhean luirg"
   search_no_results: "Cha deach toradh a lorg."
   search_results_count: "Toraidhean:"
-  categories_heading: "Roinnean-seòrsa"
-  projects_current: "Pròiseactan làithreach"
-  projects_old: "Seann phròiseactan"

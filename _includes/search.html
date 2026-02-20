@@ -12,19 +12,6 @@
 
 <ul id="search-results" class="search-results" aria-label="{{ site.strings.search_results }}"></ul>
 
-<section class="categories-section">
-  <h2>{{ site.strings.categories_heading }}</h2>
-  <ul class="category-list">
-    {% assign cats = site.categories | sort %}
-    {% for cat in cats %}
-    <li>
-      {% assign cat_slug = cat[0] | slugify: "latin" %}
-      <a href="{{ '/roinn-seorsa/' | append: cat_slug | append: '/' | relative_url }}">{{ cat[0] }} <span class="category-count">({{ cat[1].size }})</span></a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-
 <script>
 (function () {
   var input = document.getElementById('search-input');
@@ -61,7 +48,8 @@
 
     var matches = posts.filter(function (p) {
       return strip(p.title).indexOf(q) !== -1 ||
-             strip(p.excerpt).indexOf(q) !== -1;
+             strip(p.excerpt).indexOf(q) !== -1 ||
+             (p.content && strip(p.content).indexOf(q) !== -1);
     });
 
     if (matches.length === 0) {
@@ -73,9 +61,7 @@
 
     matches.forEach(function (p) {
       var li = document.createElement('li');
-      li.innerHTML = '<a href="' + p.url + '">' + p.title + '</a>' +
-        '<time datetime="' + p.date + '">' + localDate(p.date) + '</time>' +
-        '<p>' + p.excerpt + '</p>';
+      li.innerHTML = '<a href="' + p.url + '">' + p.title + '</a>'
       list.appendChild(li);
     });
   });
