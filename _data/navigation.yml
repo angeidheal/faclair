@@ -8,11 +8,11 @@
 - title: Mu ar deidhinn
   url: /mu-ar-deidhinn/
 
-- title: Cànan
-  children:
-    - title: Gaeilge
-      url: https://focloir.lgbt
-    - title: Gaelg
-      url: https://fockleyr.lgbt
-    - title: Beurla
-      url: /en
+- title: Gaeilge
+  url: https://focloir.lgbt
+
+- title: Gaelg
+  url: https://fockleyr.lgbt
+  
+- title: Beurla
+  url: /en
