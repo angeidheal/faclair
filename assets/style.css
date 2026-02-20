@@ -161,9 +161,10 @@ nav a[aria-current="page"],
 .dropdown ul {
   display: none;
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 100%;
-  margin: 0.15rem 0 0 0; /* Small top margin to help hover */
+  margin: 0.25rem 0 0;
   padding: 0.4rem 0;
   list-style: none;
   background: Canvas;
